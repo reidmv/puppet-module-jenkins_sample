@@ -1,13 +1,10 @@
 Jenkins::Rproxy consumes Token { }
 
-define jenkins::rproxy (
-  $port = 80,
-  $host = '0.0.0.0',
-) {
+define jenkins::rproxy () {
 
   profile::apache::rproxy_vhost { $title:
-    port => $port,
-    host => $host,
+    port => '8080',
+    host => 'localhost',
   }
 
 }
