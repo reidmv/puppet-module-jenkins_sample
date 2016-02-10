@@ -1,4 +1,6 @@
-application jenkins () {
+application jenkins (
+  $tomcat_host,
+) {
 
   ###
   # Application component role
@@ -9,6 +11,7 @@ application jenkins () {
   ###
   # Apache reverse proxy component role
   jenkins::rproxy { $title:
+    host    => $tomcat_host,
     consume => Token["jenkins ${title}"],
   }
 
